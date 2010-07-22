@@ -27,6 +27,7 @@ DEPEND="${RDEPEND}"
 EGIT_REPO_URI="git://git.duganet.ru/arkilloid.git"
 EGIT_PROJECT="arkilloid"
 EGIT_BOOTSTRAP="eautoreconf"
+EGIT_HAS_SUBMODULES="true"
 
 S="${WORKDIR}/${MY_P}"
 
