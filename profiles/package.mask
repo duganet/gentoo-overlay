@@ -1,0 +1,8 @@
+# Maxim  Kachur <mcdebugger@duganet.ru> (22 Jul 2010)
+# Live ebuild mask
+=games-arcade/arkilloid-9999
+
+
+# Maxim Kachur <mcdebugger@duganet.ru> (22 Jul 2010)
+# Live ebuild mask
+=games-util/arkilloid-leveledit-9999
