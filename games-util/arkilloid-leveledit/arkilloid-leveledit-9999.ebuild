@@ -11,24 +11,23 @@ HOMEPAGE="http://arkilloid.duganet.ru/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="
 	>=media-libs/libsdl-1.2.13
-	>=media-libs/sdl-image-1.2.7
+	>=media-libs/sdl-image-1.2.10
 	>=media-libs/sdl-ttf-2.0
 	"
 DEPEND="${RDEPEND}"
 
-EGIT_REPO_URI="git://git.duganet.ru/arkilloid.git"
+EGIT_REPO_URI="git://git.duganet.ru/arkilloid-leveledit.git"
 EGIT_PROJECT="arkilloid"
 EGIT_BOOTSTRAP="eautoreconf"
+EGIT_HAS_SUBMODULES="true"
 
 src_configure() {
-	cd ./tools/arkilloid-leveledit/
 	egamesconf
-#	emake || die "emake failed"
 }
 
 src_install() {
