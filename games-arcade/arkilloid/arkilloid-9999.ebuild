@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,7 @@ HOMEPAGE="http://arkilloid.duganet.ru/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="debug"
 
 RDEPEND="
 	>=media-libs/libsdl-1.2.13
@@ -24,16 +24,25 @@ RDEPEND="
 	"
 DEPEND="${RDEPEND}"
 
-EGIT_REPO_URI="git://github.com/duganet/gentoo-overlay.git"
+EGIT_REPO_URI="git://github.com/duganet/arkilloid.git"
 EGIT_PROJECT="arkilloid"
 EGIT_HAS_SUBMODULES=1
 
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
-	cmake-utils-src-configure
+	local mycmakeargs="$(cmake-utils_use debug DEBUG)"
+
+	mycmakeargs="${mycmakeargs}
+				-DCMAKE_INSTALL_PREFIX=${GAMES_PREFIX}"
+
+	cmake-utils_src_configure
+}
+
+src_compile() {
+	cmake-utils_src_compile
 }
 
 src_install() {
-	cmake-utils-src-compile
+	cmake-utils_src_install
 }
