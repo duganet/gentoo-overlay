@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit autotools games git
+inherit cmake-utils games git-2
 
 MY_P="arkilloid-${PV}"
 
@@ -24,18 +24,16 @@ RDEPEND="
 	"
 DEPEND="${RDEPEND}"
 
-EGIT_REPO_URI="git://git.duganet.ru/arkilloid.git"
+EGIT_REPO_URI="git://github.com/duganet/gentoo-overlay.git"
 EGIT_PROJECT="arkilloid"
-EGIT_BOOTSTRAP="eautoreconf"
-EGIT_HAS_SUBMODULES="true"
+EGIT_HAS_SUBMODULES=1
 
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
-	egamesconf
-#	emake || die "emake failed"
+	cmake-utils-src-configure
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "Install failed"
+	cmake-utils-src-compile
 }
